@@ -41,10 +41,10 @@ namespace SocketClient
                     // Wait 1 seconds between connection attempts
                     Thread.Sleep(1000);
                 }
-                catch (SocketException e)
+                catch (SocketException ex)
                 {
                     attempts++;
-                    Console.WriteLine(e);
+                    Console.WriteLine(ex);
                 }
             }
         }

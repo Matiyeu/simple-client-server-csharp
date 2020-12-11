@@ -37,10 +37,10 @@ namespace SocketServer
                 serverSocket.BeginAccept(AcceptCallback, null);
                 running = true;
             }
-            catch (SocketException e)
+            catch (SocketException ex)
             {
                 running = false;
-                Console.WriteLine(e.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -118,8 +118,6 @@ namespace SocketServer
                     clientSockets.Remove(current);
                     break;
                 default:
-                    // data = Encoding.ASCII.GetBytes("Invalid request!");
-                    // current.Send(data);
                     SendMessage("Invalid request!", current);
                     break;
             }
@@ -137,9 +135,11 @@ namespace SocketServer
             }
             catch (SocketException ex)
             {
+                Console.WriteLine(ex.Message);
             }
             catch (ObjectDisposedException ex)
             {
+                Console.WriteLine(ex.Message);
             }
         }
 
