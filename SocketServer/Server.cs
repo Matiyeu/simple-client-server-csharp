@@ -44,7 +44,7 @@ namespace SocketServer
             }
         }
 
-        private void Stop()
+        public void Stop()
         {
             running = false;
             CloseAllSockets();
