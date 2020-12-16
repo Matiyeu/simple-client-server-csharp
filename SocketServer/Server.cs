@@ -47,7 +47,8 @@ namespace SocketServer
         private void Stop()
         {
             running = false;
-            throw new NotImplementedException();
+            CloseAllSockets();
+            serverSocket.Close();
         }
 
         public bool IsRunning()
