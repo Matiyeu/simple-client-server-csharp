@@ -48,7 +48,6 @@ namespace SocketServer
         {
             running = false;
             CloseAllSockets();
-            serverSocket.Close();
         }
 
         public bool IsRunning()
@@ -152,8 +151,6 @@ namespace SocketServer
                 socket.Shutdown(SocketShutdown.Both);
                 socket.Close();
             }
-
-            serverSocket.Close();
         }
 
         public void SendMessage(string text, Socket socketClient)
